@@ -2,9 +2,10 @@
 - name: "Escalate privileges (if required) and ensure any changes in config file triggers a restart"
   become: "{{ wildfly_systemd_require_privilege_escalation }}"
 
-  notify:
-    - restart_wildfly
-    - exec_restorecon
+  # Commented du to error notify is not a valid attribute for a Block 
+  #notify:
+  #  - restart_wildfly
+  #  - exec_restorecon
 
   block:
 
